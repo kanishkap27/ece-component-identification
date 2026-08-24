@@ -549,9 +549,387 @@
 
                 ]
 
-            }
+        },
 
-        };
+"Capacitor": {
+
+    category: "Passive Components",
+
+    icon: "🔋",
+
+    description:
+        "A capacitor is a passive electronic component that stores electrical energy in an electric field and releases it when required.",
+
+    type: "Passive Component",
+
+    voltage: "Depends on capacitor rating",
+
+    function:
+        "Energy storage, filtering and coupling",
+
+    technology:
+        "Dielectric between two conductive plates",
+
+    working:
+        "When voltage is applied, the capacitor stores electrical charge. When required, the stored energy can be released back into the circuit.",
+
+    pins: [
+
+        {
+            name: "Positive Terminal",
+            description: "Positive electrical terminal of a polarized capacitor."
+        },
+
+        {
+            name: "Negative Terminal",
+            description: "Negative electrical terminal of a polarized capacitor."
+        }
+
+    ],
+
+    applications: [
+
+        "Power supply filtering",
+        "Noise reduction",
+        "Energy storage",
+        "Signal coupling",
+        "Timing circuits"
+
+    ]
+
+},
+
+"Inductor": {
+
+    category: "Passive Components",
+
+    icon: "🌀",
+
+    description:
+        "An inductor is a passive component that stores energy in the form of a magnetic field when electric current flows through it.",
+
+    type: "Passive Component",
+
+    voltage: "Depends on circuit design",
+
+    function:
+        "Energy storage and filtering",
+
+    technology:
+        "Coil of conducting wire",
+
+    working:
+        "When current flows through the coil, a magnetic field is produced around it. The inductor opposes sudden changes in current.",
+
+    pins: [
+
+        {
+            name: "Terminal 1",
+            description: "One electrical terminal of the inductor."
+        },
+
+        {
+            name: "Terminal 2",
+            description: "The second electrical terminal."
+        }
+
+    ],
+
+    applications: [
+
+        "Filters",
+        "Power supplies",
+        "DC-DC converters",
+        "Oscillators",
+        "Energy storage"
+
+    ]
+
+},
+
+"Diode": {
+
+    category: "Active Components",
+
+    icon: "➡️",
+
+    description:
+        "A diode is a semiconductor device that mainly allows current to flow in one direction.",
+
+    type: "Semiconductor Device",
+
+    voltage: "Depends on diode type",
+
+    function:
+        "Rectification and protection",
+
+    technology:
+        "PN junction semiconductor",
+
+    working:
+        "A diode conducts current when forward biased and blocks current when reverse biased, allowing it to control the direction of current flow.",
+
+    pins: [
+
+        {
+            name: "Anode",
+            description: "Positive terminal of the diode."
+        },
+
+        {
+            name: "Cathode",
+            description: "Negative terminal of the diode."
+        }
+
+    ],
+
+    applications: [
+
+        "Rectifiers",
+        "Reverse polarity protection",
+        "Signal detection",
+        "Voltage regulation",
+        "Switching circuits"
+
+    ]
+
+},
+
+"Transistor": {
+
+    category: "Active Components",
+
+    icon: "🔺",
+
+    description:
+        "A transistor is a semiconductor device used for switching and amplification of electrical signals.",
+
+    type: "BJT",
+
+    voltage: "Depends on transistor model",
+
+    function:
+        "Switching and signal amplification",
+
+    technology:
+        "Semiconductor transistor",
+
+    working:
+        "A small current at the base controls a larger current flowing between the collector and emitter, allowing the transistor to operate as an amplifier or switch.",
+
+    pins: [
+
+        {
+            name: "Base",
+            description: "Controls the transistor operation."
+        },
+
+        {
+            name: "Collector",
+            description: "Main current terminal."
+        },
+
+        {
+            name: "Emitter",
+            description: "Current output terminal."
+
+        }
+
+    ],
+
+    applications: [
+
+        "Electronic switches",
+        "Amplifiers",
+        "Oscillators",
+        "Digital circuits",
+        "Signal processing"
+
+    ]
+
+},
+
+"Arduino UNO": {
+
+    category: "Microcontrollers",
+
+    icon: "🟢",
+
+    description:
+        "Arduino UNO is a popular microcontroller development board based on the ATmega328P and widely used for electronics and embedded-system projects.",
+
+    type: "Microcontroller Development Board",
+
+    voltage: "5 V",
+
+    function:
+        "Control and processing of electronic systems",
+
+    technology:
+        "ATmega328P 8-bit microcontroller",
+
+    working:
+        "The Arduino UNO reads inputs from sensors or other devices, processes them according to the programmed instructions, and controls connected output devices.",
+
+    pins: [
+
+        {
+            name: "Digital Pins 0–13",
+            description: "Digital input/output pins."
+        },
+
+        {
+            name: "Analog Pins A0–A5",
+            description: "Analog input pins."
+        },
+
+        {
+            name: "5V",
+            description: "5 V power output."
+        },
+
+        {
+            name: "GND",
+            description: "Ground connection."
+        },
+
+        {
+            name: "VIN",
+            description: "External input voltage pin."
+        }
+
+    ],
+
+    applications: [
+
+        "Embedded systems",
+        "Robotics",
+        "Home automation",
+        "Sensor projects",
+        "IoT prototypes"
+
+    ]
+
+},
+
+"DHT11": {
+
+    category: "Sensors",
+
+    icon: "🌡️",
+
+    description:
+        "DHT11 is a digital sensor used to measure temperature and relative humidity.",
+
+    type: "Temperature and Humidity Sensor",
+
+    voltage: "3.3 V – 5 V",
+
+    function:
+        "Temperature and humidity measurement",
+
+    technology:
+        "Digital humidity and temperature sensing",
+
+    working:
+        "The DHT11 senses the surrounding temperature and humidity and sends the measured values digitally to a microcontroller.",
+
+    pins: [
+
+        {
+            name: "VCC",
+            description: "Power supply pin."
+        },
+
+        {
+            name: "DATA",
+            description: "Digital data communication pin."
+        },
+
+        {
+            name: "GND",
+            description: "Ground connection."
+        }
+
+    ],
+
+    applications: [
+
+        "Weather monitoring",
+        "Smart agriculture",
+        "Home automation",
+        "Environmental monitoring",
+        "IoT projects"
+
+    ]
+
+},
+
+"HC-05": {
+
+    category: "Communication Modules",
+
+    icon: "📡",
+
+    description:
+        "HC-05 is a Bluetooth communication module commonly used to provide wireless serial communication between electronic devices.",
+
+    type: "Bluetooth Module",
+
+    voltage: "Typically 5 V module supply",
+
+    function:
+        "Wireless serial communication",
+
+    technology:
+        "Bluetooth Classic",
+
+    working:
+        "The HC-05 establishes a Bluetooth connection with another compatible device and transfers serial data wirelessly.",
+
+    pins: [
+
+        {
+            name: "VCC",
+            description: "Power supply pin."
+        },
+
+        {
+            name: "GND",
+            description: "Ground connection."
+        },
+
+        {
+            name: "TXD",
+            description: "Transmits serial data."
+        },
+
+        {
+            name: "RXD",
+            description: "Receives serial data."
+        },
+
+        {
+            name: "EN",
+            description: "Module enable/control pin."
+
+        }
+
+    ],
+
+    applications: [
+
+        "Wireless robotics",
+        "Arduino projects",
+        "Home automation",
+        "Wireless serial communication",
+        "IoT prototypes"
+
+    ]
+
+}
+
+}; 
 
 
         // ========================================

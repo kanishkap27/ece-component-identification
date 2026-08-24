@@ -4,126 +4,68 @@
 // ========================================
 
 const components = [
+
     {
         name: "Resistor",
         category: "Passive Components",
-        description: "A resistor limits or controls the flow of electric current in a circuit.",
-        keywords: ["resistor", "resistance", "passive"]
+        description: "Limits current and is used for voltage division."
     },
 
     {
         name: "Capacitor",
         category: "Passive Components",
-        description: "A capacitor stores electrical energy temporarily in an electric field.",
-        keywords: ["capacitor", "capacitance", "passive"]
+        description: "Stores electrical energy and is used for filtering."
     },
 
     {
         name: "Inductor",
         category: "Passive Components",
-        description: "An inductor stores energy in the form of a magnetic field.",
-        keywords: ["inductor", "coil", "passive"]
+        description: "Stores energy in a magnetic field."
     },
 
     {
         name: "LED",
         category: "Active Components",
-        description: "An LED emits light when electric current passes through it.",
-        keywords: ["led", "light emitting diode", "diode"]
+        description: "Emits light when current flows through it."
     },
 
     {
         name: "Diode",
         category: "Active Components",
-        description: "A diode allows current to flow mainly in one direction.",
-        keywords: ["diode", "rectifier"]
+        description: "Allows current to flow mainly in one direction."
     },
 
     {
         name: "Transistor",
         category: "Active Components",
-        description: "A transistor is used for switching and amplification in electronic circuits.",
-        keywords: ["transistor", "bjt", "switch", "amplifier"]
-    },
-
-    {
-        name: "LDR",
-        category: "Sensors",
-        description: "An LDR changes its resistance according to the intensity of light.",
-        keywords: ["ldr", "light sensor", "sensor"]
-    },
-
-    {
-        name: "Ultrasonic Sensor",
-        category: "Sensors",
-        description: "An ultrasonic sensor measures distance using ultrasonic sound waves.",
-        keywords: ["ultrasonic", "distance sensor", "sensor"]
-    },
-
-    {
-        name: "DHT11",
-        category: "Sensors",
-        description: "DHT11 is a digital sensor used to measure temperature and humidity.",
-        keywords: ["dht11", "temperature", "humidity", "sensor"]
-    },
-
-    {
-        name: "MQ-135",
-        category: "Sensors",
-        description: "MQ-135 is a gas sensor commonly used for air-quality monitoring.",
-        keywords: ["mq135", "mq-135", "gas sensor", "air quality"]
+        description: "Used for switching and amplification."
     },
 
     {
         name: "Arduino UNO",
         category: "Microcontrollers",
-        description: "Arduino UNO is a popular development board based on the ATmega328P microcontroller.",
-        keywords: ["arduino", "arduino uno", "atmega328p"]
+        description: "Popular microcontroller development board."
     },
 
     {
         name: "ESP32",
         category: "Microcontrollers",
-        description: "ESP32 is a powerful microcontroller with built-in Wi-Fi and Bluetooth.",
-        keywords: ["esp32", "wifi", "bluetooth", "microcontroller"]
+        description: "Wi-Fi and Bluetooth enabled microcontroller."
     },
 
     {
-        name: "ESP8266",
-        category: "Microcontrollers",
-        description: "ESP8266 is a Wi-Fi enabled microcontroller widely used in IoT projects.",
-        keywords: ["esp8266", "wifi", "iot", "microcontroller"]
+        name: "DHT11",
+        category: "Sensors",
+        description: "Digital temperature and humidity sensor."
     },
 
     {
         name: "HC-05",
         category: "Communication Modules",
-        description: "HC-05 is a Bluetooth communication module used for wireless serial communication.",
-        keywords: ["hc05", "hc-05", "bluetooth", "communication"]
-    },
-
-    {
-        name: "RFID Module",
-        category: "Communication Modules",
-        description: "An RFID module is used to identify objects using radio-frequency identification.",
-        keywords: ["rfid", "communication", "reader"]
-    },
-
-    {
-        name: "Relay",
-        category: "Power Electronics",
-        description: "A relay is an electrically operated switch used to control high-power loads.",
-        keywords: ["relay", "switch", "power"]
-    },
-
-    {
-        name: "Voltage Regulator",
-        category: "Power Electronics",
-        description: "A voltage regulator provides a stable output voltage to electronic circuits.",
-        keywords: ["voltage regulator", "regulator", "power"]
+        description: "Bluetooth serial communication module."
     }
-];
 
+];
 
 // ========================================
 // SEARCH FUNCTION
@@ -145,29 +87,23 @@ function searchComponent() {
         return;
     }
 
-    const result = components.filter(component => {
+   const result = components.filter(component => {
 
-        const nameMatch =
-            component.name.toLowerCase().includes(searchText);
+    const nameMatch =
+        component.name.toLowerCase().includes(searchText);
 
-        const categoryMatch =
-            component.category.toLowerCase().includes(searchText);
+    const categoryMatch =
+        component.category.toLowerCase().includes(searchText);
 
-        const descriptionMatch =
-            component.description.toLowerCase().includes(searchText);
+    const descriptionMatch =
+        component.description.toLowerCase().includes(searchText);
 
-        const keywordMatch =
-            component.keywords.some(keyword =>
-                keyword.toLowerCase().includes(searchText)
-            );
-
-        return (
-            nameMatch ||
-            categoryMatch ||
-            descriptionMatch ||
-            keywordMatch
-        );
-    });
+    return (
+        nameMatch ||
+        categoryMatch ||
+        descriptionMatch
+    );
+});
 
     showSearchResults(result, searchText);
 }
@@ -207,7 +143,7 @@ function showSearchResults(results, searchText) {
             <p>
                 Try searching for:
                 Resistor, Capacitor, LED, Arduino, ESP32, DHT11...
-            </p>
+            </p>const 
         `;
 
         resultSection.scrollIntoView({
