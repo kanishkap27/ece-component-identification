@@ -295,19 +295,10 @@ function showSearchResults(results, searchText) {
 
 function viewComponent(componentName) {
 
-    const component = components.find(
-        item => item.name === componentName
-    );
+    window.location.href =
+        "component.html?name=" +
+        encodeURIComponent(componentName);
 
-    if (!component) {
-        return;
-    }
-
-    alert(
-        `${component.name}\n\n` +
-        `Category: ${component.category}\n\n` +
-        `${component.description}`
-    );
 }
 
 
