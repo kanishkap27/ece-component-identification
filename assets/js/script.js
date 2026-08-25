@@ -277,3 +277,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+// ========================================
+// CATEGORY FILTER
+// ========================================
+
+function filterByCategory(categoryName) {
+
+    const results = components.filter(component => {
+
+        return component.category === categoryName;
+
+    });
+
+    showSearchResults(results, categoryName);
+
+}

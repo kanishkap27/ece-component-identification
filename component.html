@@ -97,9 +97,13 @@
             border-radius: 15px;
         }
 
-        .component-image-box span {
-            font-size: 90px;
-        }
+       .component-image-box img {
+    width: 80%;
+    max-width: 400px;
+    max-height: 350px;
+    object-fit: contain;
+    border-radius: 12px;
+}
 
         .component-description h2 {
             font-size: 30px;
@@ -245,13 +249,15 @@
 
         <section class="component-main">
 
-            <div class="component-image-box">
+           <div class="component-image-box">
 
-                <span id="componentIcon">
-                    ⚡
-                </span>
+    <img
+        id="componentImage"
+        src=""
+        alt="Component Image"
+    >
 
-            </div>
+</div>
 
 
             <div class="component-description">
@@ -382,6 +388,8 @@
 
                 icon: "🔵",
 
+                image: "assets/images/components/esp32.jpg",
+
                 description:
                     "ESP32 is a powerful microcontroller development platform with built-in Wi-Fi and Bluetooth. It is widely used for IoT, automation, embedded systems and wireless communication projects.",
 
@@ -452,6 +460,8 @@
 
                 icon: "〰️",
 
+                image: "assets/images/components/resistor.jpg",
+
                 description:
                     "A resistor is a passive electronic component that opposes the flow of electric current and is commonly used to control current and divide voltage.",
 
@@ -505,6 +515,8 @@
 
                 icon: "💡",
 
+                image: "assets/images/components/led.jpg",
+
                 description:
                     "An LED, or Light Emitting Diode, is a semiconductor device that emits light when current flows through it in the forward direction.",
 
@@ -557,6 +569,8 @@
 
     icon: "🔋",
 
+    image: "assets/images/components/capacitor.jpg",
+
     description:
         "A capacitor is a passive electronic component that stores electrical energy in an electric field and releases it when required.",
 
@@ -604,6 +618,8 @@
     category: "Passive Components",
 
     icon: "🌀",
+
+    image: "assets/images/components/inductor.jpg",
 
     description:
         "An inductor is a passive component that stores energy in the form of a magnetic field when electric current flows through it.",
@@ -653,6 +669,8 @@
 
     icon: "➡️",
 
+    image: "assets/images/components/diode.jpg",
+
     description:
         "A diode is a semiconductor device that mainly allows current to flow in one direction.",
 
@@ -700,6 +718,8 @@
     category: "Active Components",
 
     icon: "🔺",
+
+    image: "assets/images/components/transistor.jpg",
 
     description:
         "A transistor is a semiconductor device used for switching and amplification of electrical signals.",
@@ -754,6 +774,8 @@
     category: "Microcontrollers",
 
     icon: "🟢",
+
+    image: "assets/images/components/arduino-uno.jpg",
 
     description:
         "Arduino UNO is a popular microcontroller development board based on the ATmega328P and widely used for electronics and embedded-system projects.",
@@ -818,6 +840,8 @@
 
     icon: "🌡️",
 
+    image: "assets/images/components/dht11.jpg",
+
     description:
         "DHT11 is a digital sensor used to measure temperature and relative humidity.",
 
@@ -870,6 +894,8 @@
     category: "Communication Modules",
 
     icon: "📡",
+
+    image: "assets/images/components/hc-05.jpg",
 
     description:
         "HC-05 is a Bluetooth communication module commonly used to provide wireless serial communication between electronic devices.",
@@ -947,122 +973,135 @@
         // LOAD COMPONENT
         // ========================================
 
-        function loadComponent() {
+      function loadComponent() {
 
-            const component =
-                componentData[componentName];
+    const component =
+        componentData[componentName];
 
-            if (!component) {
+    if (!component) {
 
-                document.getElementById(
-                    "componentName"
-                ).textContent = "Component Not Found";
+        document.getElementById("componentName").textContent =
+            "Component Not Found";
 
-                document.getElementById(
-                    "componentDescription"
-                ).textContent =
-                    "The requested component could not be found.";
+        document.getElementById("componentDescription").textContent =
+            "The requested component could not be found.";
 
-                return;
+        return;
+    }
 
-            }
+    // ========================================
+    // BASIC DETAILS
+    // ========================================
 
+    document.getElementById("componentName").textContent =
+        componentName;
 
-            document.getElementById(
-                "componentName"
-            ).textContent = componentName;
+    document.getElementById("componentCategory").textContent =
+        component.category;
 
-
-            document.getElementById(
-                "componentCategory"
-            ).textContent = component.category;
-
-
-            document.getElementById(
-                "componentIcon"
-            ).textContent = component.icon;
+    document.getElementById("componentDescription").textContent =
+        component.description;
 
 
-            document.getElementById(
-                "componentDescription"
-            ).textContent = component.description;
+    // ========================================
+    // COMPONENT IMAGE
+    // ========================================
+
+    const componentImage =
+        document.getElementById("componentImage");
+
+    if (componentImage) {
+
+        componentImage.src = component.image;
+
+        componentImage.alt =
+            componentName + " image";
+
+    }
 
 
-            document.getElementById(
-                "specType"
-            ).textContent = component.type;
+    // ========================================
+    // SPECIFICATIONS
+    // ========================================
+
+    document.getElementById("specType").textContent =
+        component.type || "-";
+
+    document.getElementById("specVoltage").textContent =
+        component.voltage || "-";
+
+    document.getElementById("specFunction").textContent =
+        component.function || "-";
+
+    document.getElementById("specTechnology").textContent =
+        component.technology || "-";
 
 
-            document.getElementById(
-                "specVoltage"
-            ).textContent = component.voltage;
+    // ========================================
+    // PIN DETAILS
+    // ========================================
+
+    const pinContainer =
+        document.getElementById("pinDetails");
+
+    pinContainer.innerHTML = "";
+
+    if (component.pins && component.pins.length > 0) {
+
+        component.pins.forEach(pin => {
+
+            pinContainer.innerHTML += `
+                <div class="pin-card">
+
+                    <h3>
+                        ${pin.name}
+                    </h3>
+
+                    <p>
+                        ${pin.description}
+                    </p>
+
+                </div>
+            `;
+
+        });
+
+    }
 
 
-            document.getElementById(
-                "specFunction"
-            ).textContent = component.function;
+    // ========================================
+    // WORKING PRINCIPLE
+    // ========================================
+
+    document.getElementById("workingPrinciple").textContent =
+        component.working || "-";
 
 
-            document.getElementById(
-                "specTechnology"
-            ).textContent = component.technology;
+    // ========================================
+    // APPLICATIONS
+    // ========================================
 
+    const applicationContainer =
+        document.getElementById("applications");
 
-            // PIN DETAILS
+    applicationContainer.innerHTML = "";
 
-            const pinContainer =
-                document.getElementById("pinDetails");
+    if (component.applications &&
+        component.applications.length > 0) {
 
-            pinContainer.innerHTML = "";
+        component.applications.forEach(application => {
 
-            component.pins.forEach(pin => {
+            applicationContainer.innerHTML += `
+                <li>
+                    ${application}
+                </li>
+            `;
 
-                pinContainer.innerHTML += `
+        });
 
-                    <div class="pin-card">
+    }
 
-                        <h3>
-                            ${pin.name}
-                        </h3>
-
-                        <p>
-                            ${pin.description}
-                        </p>
-
-                    </div>
-
-                `;
-
-            });
-
-
-            // WORKING PRINCIPLE
-
-            document.getElementById(
-                "workingPrinciple"
-            ).textContent = component.working;
-
-
-            // APPLICATIONS
-
-            const applicationContainer =
-                document.getElementById("applications");
-
-            applicationContainer.innerHTML = "";
-
-            component.applications.forEach(application => {
-
-                applicationContainer.innerHTML += `
-
-                    <li>
-                        ${application}
-                    </li>
-
-                `;
-
-            });
-
-        }
+}
 
 
         loadComponent();
