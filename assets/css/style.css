@@ -1334,3 +1334,26 @@ footer {
     transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
 }
+/* ========================================
+   PIN DIAGRAM
+======================================== */
+
+.pin-diagram-section {
+    margin-top: 50px;
+}
+
+.pin-diagram-box {
+    margin-top: 25px;
+    padding: 30px;
+    background: white;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.pin-diagram-box img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+}

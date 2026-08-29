@@ -318,18 +318,39 @@
 
         <section class="info-section">
 
-            <h2>
-                Pin Details
-            </h2>
+           <h2>
+    Pin Details
+</h2>
 
-            <div class="pin-grid"
-                 id="pinDetails">
+<div class="pin-grid"
+     id="pinDetails">
 
-                <!-- Pins will be inserted here -->
+    <!-- Pins will be inserted here -->
 
-            </div>
+</div>
 
-        </section>
+</section>
+
+
+<!-- ================= PIN DIAGRAM ================= -->
+
+<section class="pin-diagram-section">
+
+    <h2>
+        Pin Diagram
+    </h2>
+
+    <div class="pin-diagram-box">
+
+        <img
+            id="pinDiagram"
+            src=""
+            alt="Component Pin Diagram"
+        >
+
+    </div>
+
+</section>
 
 
         <!-- ==============================
@@ -389,6 +410,8 @@
                 icon: "🔵",
 
                 image: "assets/images/components/esp32.jpg",
+
+                pinDiagram: "assets/images/pin diagrams/esp32-pinout.png",
 
                 description:
                     "ESP32 is a powerful microcontroller development platform with built-in Wi-Fi and Bluetooth. It is widely used for IoT, automation, embedded systems and wireless communication projects.",
@@ -462,6 +485,8 @@
 
                 image: "assets/images/components/resistor.jpg",
 
+                pinDiagram: "assets/images/pin diagrams/resistor-pinout.png",
+
                 description:
                     "A resistor is a passive electronic component that opposes the flow of electric current and is commonly used to control current and divide voltage.",
 
@@ -517,6 +542,8 @@
 
                 image: "assets/images/components/led.jpg",
 
+                pinDiagram: "assets/images/pin diagrams/led-pinout.png",
+
                 description:
                     "An LED, or Light Emitting Diode, is a semiconductor device that emits light when current flows through it in the forward direction.",
 
@@ -571,6 +598,8 @@
 
     image: "assets/images/components/capacitor.jpg",
 
+    pinDiagram: "assets/images/pin diagrams/capacitor-pinout.png",
+
     description:
         "A capacitor is a passive electronic component that stores electrical energy in an electric field and releases it when required.",
 
@@ -620,6 +649,8 @@
     icon: "🌀",
 
     image: "assets/images/components/inductor.jpg",
+
+    pinDiagram: "assets/images/pin diagrams/inductor-pinout.png",
 
     description:
         "An inductor is a passive component that stores energy in the form of a magnetic field when electric current flows through it.",
@@ -671,6 +702,8 @@
 
     image: "assets/images/components/diode.jpg",
 
+    pinDiagram: "assets/images/pin diagrams/diode-pinout.png",
+
     description:
         "A diode is a semiconductor device that mainly allows current to flow in one direction.",
 
@@ -720,6 +753,8 @@
     icon: "🔺",
 
     image: "assets/images/components/transistor.jpg",
+
+    pinDiagram: "assets/images/pin diagrams/transistor-pinout.png",
 
     description:
         "A transistor is a semiconductor device used for switching and amplification of electrical signals.",
@@ -776,6 +811,8 @@
     icon: "🟢",
 
     image: "assets/images/components/arduino-uno.jpg",
+
+    pinDiagram: "assets/images/pin diagrams/arduino-uno-pinout.png",
 
     description:
         "Arduino UNO is a popular microcontroller development board based on the ATmega328P and widely used for electronics and embedded-system projects.",
@@ -842,6 +879,8 @@
 
     image: "assets/images/components/dht11.jpg",
 
+    pinDiagram: "assets/images/pin diagrams/dht11-pinout.png",
+
     description:
         "DHT11 is a digital sensor used to measure temperature and relative humidity.",
 
@@ -896,6 +935,8 @@
     icon: "📡",
 
     image: "assets/images/components/hc-05.jpg",
+
+    pinDiagram: "assets/images/pin diagrams/hc-05-pinout.png",
 
     description:
         "HC-05 is a Bluetooth communication module commonly used to provide wireless serial communication between electronic devices.",
@@ -1018,6 +1059,31 @@
             componentName + " image";
 
     }
+
+    // ========================================
+// PIN DIAGRAM
+// ========================================
+
+const pinDiagram =
+    document.getElementById("pinDiagram");
+
+if (pinDiagram) {
+
+    if (component.pinDiagram) {
+
+        pinDiagram.src =
+            component.pinDiagram;
+
+        pinDiagram.alt =
+            componentName + " pin diagram";
+
+    } else {
+
+        pinDiagram.style.display = "none";
+
+    }
+
+}
 
 
     // ========================================

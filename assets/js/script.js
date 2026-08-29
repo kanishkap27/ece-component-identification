@@ -8,61 +8,71 @@ const components = [
     {
         name: "Resistor",
         category: "Passive Components",
-        description: "Limits current and is used for voltage division."
+        description: "Limits current and is used for voltage division.",
+        image: "assets/images/components/resistor.jpg"
     },
 
     {
         name: "Capacitor",
         category: "Passive Components",
-        description: "Stores electrical energy and is used for filtering."
+        description: "Stores electrical energy and is used for filtering.",
+        image: "assets/images/components/capacitor.jpg"
     },
 
     {
         name: "Inductor",
         category: "Passive Components",
-        description: "Stores energy in a magnetic field."
+        description: "Stores energy in a magnetic field.",
+        image: "assets/images/components/inductor.jpg"
     },
 
     {
         name: "LED",
         category: "Active Components",
-        description: "Emits light when current flows through it."
+        description: "Emits light when current flows through it.",
+        image: "assets/images/components/led.jpg"
     },
 
     {
         name: "Diode",
         category: "Active Components",
-        description: "Allows current to flow mainly in one direction."
+        description: "Allows current to flow mainly in one direction.",
+        image: "assets/images/components/diode.jpg"
     },
 
     {
         name: "Transistor",
         category: "Active Components",
-        description: "Used for switching and amplification."
+        description: "Used for switching and amplification.",
+        image: "assets/images/components/transistor.jpg"
     },
 
     {
         name: "Arduino UNO",
         category: "Microcontrollers",
-        description: "Popular microcontroller development board."
+        description: "Popular microcontroller development board.",
+        image: "assets/images/components/arduino-uno.jpg"
     },
 
     {
         name: "ESP32",
         category: "Microcontrollers",
-        description: "Wi-Fi and Bluetooth enabled microcontroller."
+        description: "Wi-Fi and Bluetooth enabled microcontroller.",
+        image: "assets/images/components/esp32.jpg"
     },
 
     {
         name: "DHT11",
         category: "Sensors",
-        description: "Digital temperature and humidity sensor."
+        description: "Digital temperature and humidity sensor.",
+        image: "assets/images/components/dht11.jpg"
     },
 
     {
         name: "HC-05",
         category: "Communication Modules",
-        description: "Bluetooth serial communication module."
+        description: "Bluetooth serial communication module.",
+        image: "assets/images/components/hc-05.jpg"
     }
 
 ];
@@ -182,6 +192,16 @@ function showSearchResults(results, searchText) {
                 border-radius:15px;
                 box-shadow:0 5px 20px rgba(0,0,0,0.08);
             ">
+             <img
+            src="${component.image}"
+            alt="${component.name}"
+            style="
+                width:180px;
+                height:150px;
+                object-fit:contain;
+                margin-bottom:15px;
+            "
+        >
 
                 <h3>
                     ${component.name}
